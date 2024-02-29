@@ -48,20 +48,15 @@ def get_linkedin_jobs_data(
         The DataFrame of LinkedIn job postings.
     """
 
-    SAMPLE_PATH = 'sample.csv'
-
-    if os.path.isfile(SAMPLE_PATH):
-        jobs_data = pd.read_csv(SAMPLE_PATH).to_dict('records')
-    else:
-        # Get Scraping Dog LiknedIn jobs data
-        jobs_data = scrape.sd_fetch_jobs_from_page(
-            api_key=api_key,
-            field=field,
-            geoid=geoid,
-            page=page,
-            sort_by=sort_by,
-            verbose=verbose
-        )
+    # Get Scraping Dog LiknedIn jobs data
+    jobs_data = scrape.sd_fetch_jobs_from_page(
+        api_key=api_key,
+        field=field,
+        geoid=geoid,
+        page=page,
+        sort_by=sort_by,
+        verbose=verbose
+    )
 
     # For each url, use BeautifulSoup to scrape additional data
     for index, job_dict in enumerate(jobs_data.copy()):
@@ -116,4 +111,4 @@ if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
     timestamp = datetime.now().strftime(r'%Y%m%d_%H%M%S')
     field = '_'.join([w for w in args.field.split()])
-    jobs_df.to_csv('data/{}_{}_linkedin_jobs.csv'.format(timestamp, field))
+    jobs_df.to_csv('data/{}_{}_linkedin_jobs.csv'.format(timestamp, field), index=False, lineterminator='\n')
