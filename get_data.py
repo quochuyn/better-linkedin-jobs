@@ -116,4 +116,4 @@ if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
     timestamp = datetime.now().strftime(r'%Y%m%d_%H%M%S')
     field = '_'.join([w for w in args.field.split()])
-    jobs_df.to_csv('data/{}_{}_linkedin_jobs'.format(timestamp, field))
+    jobs_df.to_csv('data/{}_{}_linkedin_jobs.csv'.format(timestamp, field))
