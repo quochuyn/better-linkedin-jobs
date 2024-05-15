@@ -27,7 +27,7 @@ def sd_fetch_jobs_from_page(
     ----------
     api_key : str
         The Scraping Dog API key obtained in the 
-        [member area](https://api.scrapingdog.com/dashboard/65cdb16ffac36d5508c81b26).
+        [member area](https://api.scrapingdog.com/login).
     field : str, default='data scientist'
         The search query which can either be a job title or the name 
         of a company.

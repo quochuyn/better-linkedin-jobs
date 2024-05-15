@@ -12,7 +12,7 @@ def get_scraping_dog_api_key() -> str:
     -------
     api_key : str
         The Scraping Dog API key obtained in the 
-        [member area](https://api.scrapingdog.com/dashboard/65cdb16ffac36d5508c81b26).
+        [member area](https://api.scrapingdog.com/login).
     """
 
     with open('./secrets.toml', 'rb') as read_file:
